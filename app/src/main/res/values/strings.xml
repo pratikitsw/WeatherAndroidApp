@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Weather Android</string>
+    <string name="icon_image_url">https:%1$s</string>
+    <string name="temperature_value_in_celsius">%1$s°</string>
+    <string name="wind_speed_label">wind speed</string>
+    <string name="humidity_label">humidity</string>
+    <string name="uv_index_label">uv</string>
+    <string name="wind_speed_unit">km/h</string>
+    <string name="uv_unit">index</string>
+    <string name="humidity_unit">%</string>
+    <string name="hourly_forecast">Hourly Forecast</string>
+    <string name="day_forecast">3 Day Forecast</string>
+    <string name="search_icon">Search Icon</string>
+    <string name="search_hint">Search for a city</string>
+    <string name="close_icon">Close Icon</string>
+    <string name="retry">Retry</string>
+    <string name="enabled_gps">Enable GPS</string>
+    <string name="gps_settings_message">GPS is disabled. Please enable it in settings to see data for your location.</string>
+    <string name="gps_settings_button_text">Settings</string>
+    <string name="gps_settings_cancel_button_text">Cancel</string>
+</resources>
