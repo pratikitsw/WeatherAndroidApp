@@ -40,4 +40,5 @@ This architecture promotes a clear separation of concerns, making the codebase m
 - Allow Current Location: The user later decides to enable location access in the app settings. 
 - Load Data for Current Location: After granting permission, the app loads data for the user’s current location.
 
-https://github.com/pratikitsw/WeatherAndroidApp/tree/master/app/src/main/assets/WeatherAppDemo.mp4
+https://github.com/user-attachments/assets/858e67d9-c89f-48ca-9d35-5ac81feb11fa
+
