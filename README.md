@@ -2,7 +2,7 @@
 This application is built using the Model-View-ViewModel (MVVM) architecture combined with the Repository pattern, effectively separating the user interface, business logic, and data management.
 
 # How It Works
-- User Interface: The app opens to a main weather screen displaying the default city’s weather—Munich.
+- User Interface: The app opens to a main weather screen displaying the lastly search city or current location.
 - City Search: When a user enters a city name in the search bar, the process begins.
 - Data Retrieval: The ViewModel interacts with the Repository, which calls the OpenWeatherMap API to fetch the weather data for the specified city.
 - Data Handling: Once the API returns the weather information, the Repository passes this data back to the ViewModel.
@@ -21,22 +21,23 @@ This architecture promotes a clear separation of concerns, making the codebase m
     - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - Lifecycle-aware components perform actions in response to a change in the lifecycle status of another component, such as activities and fragments. These components help you produce better-organized, and often lighter-weight code, that is easier to maintain.
     - [Datastore](https://developer.android.com/jetpack/androidx/releases/datastore)- A library that allows to store key-value pairs or typed objects with protocol buffers.
     - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - The ViewModel class is a business logic or screen level state holder. It exposes state to the UI and encapsulates related business logic. Its principal advantage is that it caches state and persists it through configuration changes.
+- [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines) - A concurrency design pattern that you can use on Android to simplify code that executes asynchronously and it's the recommended way for asynchronous programming on Android.
+- [Kotlin Flow](https://developer.android.com/kotlin/flow) - In coroutines, a flow is a type that can emit multiple values sequentially, as opposed to suspend functions that return only a single value.
+- [Retrofit](https://square.github.io/retrofit) - Retrofit is a REST client for Java/ Kotlin and Android by Square. Its a simple network library that is used for network transactions.
+- [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android) - A dependency injection library for Android that reduces the boilerplate of doing manual dependency injection in your project.
 - [JUnit](https://developer.android.com/training/testing/local-tests) - A widely used testing framework for Java, enabling the creation and execution of unit tests. It supports annotations, assertions, and test lifecycle management.
 - [Mockk](https://github.com/mockk/mockk)- A mocking library for Kotlin
 - [Coil](https://coil-kt.github.io/coil/compose/)- An image loading library for Android backed by Kotlin Coroutines.
-- [Retrofit](https://square.github.io/retrofit) - Retrofit is a REST client for Java/ Kotlin and Android by Square. Its a simple network library that is used for network transactions.
-- [Timber](https://github.com/JakeWharton/timber)- A logger with a small, extensible API which provides utility on top of Android's normal Log class.
+- [Turbine](https://github.com/cashapp/turbine)- A small testing library for kotlinx.coroutines Flow
 - [GSON](https://github.com/google/gson) - JSON Parser, used to parse requests on the data layer for Entities and understands Kotlin non-nullable and default parameters.
-- [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android) - A dependency injection library for Android that reduces the boilerplate of doing manual dependency injection in your project.
-- [Kotlin Flow](https://developer.android.com/kotlin/flow) - In coroutines, a flow is a type that can emit multiple values sequentially, as opposed to suspend functions that return only a single value.
 - [Logging Interceptor](https://github.com/square/okhttp/blob/master/okhttp-logging-interceptor/README.md) - An OkHttp interceptor which logs HTTP request and response data.
 - [OkHttp](https://github.com/square/okhttp) - OkHttp is an HTTP client. It perseveres when the network is troublesome as it will silently recover from common connection problems.
-- [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines) - A concurrency design pattern that you can use on Android to simplify code that executes asynchronously and it's the recommended way for asynchronous programming on Android.
-- [Turbine](https://github.com/cashapp/turbine)- A small testing library for kotlinx.coroutines Flow
 
-## Demo
+## Reference Demo: App Functionality Steps
+- Deny Location Permission: The video starts with the user denying the location permission when prompted.
+- Manual Search: The user manually searches for a location despite the permission denial. 
+- Open the App: The app opens and allows the user to search for a city without location access. 
+- Allow Current Location: The user later decides to enable location access in the app settings. 
+- Load Data for Current Location: After granting permission, the app loads data for the user’s current location.
 
-
-
-
-
+https://github.com/pratikitsw/WeatherAndroidApp/tree/master/app/src/main/assets/WeatherAppDemo.mp4
