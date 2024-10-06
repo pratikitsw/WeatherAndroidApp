@@ -24,6 +24,10 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * ViewModel for the Weather screen.
+ * Handles fetching weather data and managing UI state.
+ */
 @HiltViewModel
 class WeatherViewModel @Inject constructor(
     private val repository: WeatherRepository,
@@ -44,28 +48,46 @@ class WeatherViewModel @Inject constructor(
     private val _searchTriggered = mutableStateOf(false)
     val searchTriggered: State<Boolean> = _searchTriggered
 
+    /**
+     * Flow of the city name from preferences.
+     */
     private val cityName = weatherPreferencesRepository.cityNameFlow
 
     init {
         viewModelScope.launch {
             cityName.distinctUntilChanged().collect { name ->
-                name?.let { getWeatherDataFromRepository(name) }
+                name?.let { getWeatherDataFromRepository(it) }
             }
         }
     }
 
+    /**
+     * Updates the search field state.
+     * @param newValue The new search field state.
+     */
     fun updateSearchFieldState(newValue: SearchFieldState) {
         _searchFieldState.value = newValue
     }
 
+    /**
+     * Updates the search text.
+     * @param newValue The new search text.
+     */
     fun updateSearchText(newValue: String) {
         _searchText.value = newValue
     }
 
+    /**
+     * Triggers a search.
+     */
     fun triggerSearch() {
         _searchTriggered.value = !_searchTriggered.value
     }
 
+    /**
+     * Gets the city name from the user's location.
+     * @param location The user's location.
+     */
     fun getCityNameFromLocation(location: Location) {
         locationToCityMapper.getCityNameFromLocation(location) { cityName ->
             cityName?.let {
@@ -74,12 +96,20 @@ class WeatherViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Updates the city name in preferences.
+     * @param city The new city name.
+     */
     fun updateCityName(city: String) {
         viewModelScope.launch {
             weatherPreferencesRepository.saveCityName(city)
         }
     }
 
+    /**
+     * Fetches weather data from the repository.
+     * @param city The city to fetch weather data for.
+     */
     private fun getWeatherDataFromRepository(city: String) {
         repository.getWeatherForecast(city).map { result ->
             when (result) {
